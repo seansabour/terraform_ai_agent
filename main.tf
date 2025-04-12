@@ -1,14 +1,14 @@
+provider "aws" {
+  region = "us-west-2"
+}
+
 module "s3_bucket" {
   source            = "./modules/s3"
-  bucket_name       = "desired-bucket-name"
+  bucket_name       = "my-private-bucket"
   bucket_acl        = "private"
   versioning_enabled = true
   tags = {
     Environment = "production"
-    Project     = "example-project"
+    Project     = "terraform-s3"
   }
-}
-
-provider "aws" {
-  region = "us-west-2"
 }
